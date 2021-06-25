@@ -5,6 +5,8 @@ import { useHistory } from 'react-router';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import Product from './Product/Product';
+import ProductProfile from './ProductProfile/ProductProfile';
+
 import './Dashboard.css';
 
 export default function Dashboard() {
@@ -40,6 +42,9 @@ export default function Dashboard() {
           <Switch>
             <Route path="/dashboard/users">
 
+            </Route>
+            <Route path="/dashboard/products/:id">
+              <ProductProfile />
             </Route>
             <Route path="/dashboard/products">
               <Product />
