@@ -9,19 +9,18 @@ export default function ProductProfile(props) {
   const [product, setProduct] = useState();
   let { id } = useParams();
 
-  const disableButton = () => ( (props.role !== 'admin') || (props.id !== id) ) ? true : false;
+  const disableButton = () => ( (props.user.role !== 'admin') || (props.user.id !== (product ? product.UserId : null)) ) ? true : false;
   useEffect(() => 
     axios.get(`/products/${id}`)
       .then( (res) => setProduct(res.data) )
-      .catch( (err) => console.log(err.response) )
-  )
+      .catch( (err) => console.log(err.response) ),
+  [id])
   const handleDelete = (event) => {
     event.preventDefault();
     axios.delete(`/products/${id}`)
       .then( (res) => history.push('/dashboard/products') )
       .catch( (err) => console.log(err.response) );
   }
-
   return (
     <div className="ProductProfile">
       <Card style={{ width: '20rem'}}>

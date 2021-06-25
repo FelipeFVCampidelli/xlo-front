@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import Product from './Product/Product';
 import ProductProfile from './ProductProfile/ProductProfile';
+import CadastroProduto from './CadastroProduto/CadastroProduto';
 
 import './Dashboard.css';
 
@@ -43,8 +44,11 @@ export default function Dashboard() {
             <Route path="/dashboard/users">
 
             </Route>
+            <Route path="/dashboard/products/cadastro">
+              <CadastroProduto />
+            </Route>
             <Route path="/dashboard/products/:id">
-              <ProductProfile />
+              <ProductProfile user={user} />
             </Route>
             <Route path="/dashboard/products">
               <Product />
