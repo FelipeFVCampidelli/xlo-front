@@ -4,6 +4,7 @@ import { Nav, Button } from 'react-bootstrap';
 import { useHistory } from 'react-router';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
+import Product from './Product/Product';
 import './Dashboard.css';
 
 export default function Dashboard() {
@@ -41,7 +42,7 @@ export default function Dashboard() {
 
             </Route>
             <Route path="/dashboard/products">
-
+              <Product />
             </Route>
           </Switch>
         </Router>
